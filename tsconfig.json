@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "lib": ["ESNext", "DOM"],
+        "paths": {
+            "@/*": ["./src/*", "./dist/*"]
+        }
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
+}
