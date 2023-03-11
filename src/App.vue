@@ -1,11 +1,10 @@
-<template>
-  <Home></Home>
-</template>
-
 <script setup lang="ts">
-import Home from './components/Home.vue';
-
+import { RouterView } from 'vue-router';
 </script>
+
+<template>
+  <router-view></router-view>
+</template>
 
 <style>
 #app {
@@ -13,7 +12,6 @@ import Home from './components/Home.vue';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 60px;;
 }
 </style>
