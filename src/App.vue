@@ -9,6 +9,7 @@ const menuItems = [
     },
     {
         label: 'Skills',
+        to: '/skills'
     },
     {
         label: 'Education',
@@ -16,6 +17,7 @@ const menuItems = [
     },
     {
         label: 'Contact',
+        to: '/contact'
     }
 ];
 </script>
