@@ -50,8 +50,17 @@ const menuItems = [
     justify-content: center;
 }
 
-.p-tabmenu-nav{
-    width: 75%;
+@media (min-width: 601px){
+  .p-tabmenu-nav{
+     width: 75%;
+  }
+}
+
+
+@media (max-width: 600px){
+  .p-tabmenu-nav{
+     width: 100%;
+  }
 }
 
 .p-tabmenuitem{
