@@ -37,7 +37,8 @@ const menuItems = [
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Avenir, Helvetica, sans-serif;
+  font-size: large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -83,5 +84,10 @@ const menuItems = [
 .slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
+}
+
+ul {
+    text-align: start;
+    list-style-type: circle;
 }
 </style>
