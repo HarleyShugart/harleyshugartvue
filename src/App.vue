@@ -36,13 +36,18 @@ const menuItems = [
 </template>
 
 <style>
+html{
+  height: 100%;
+}
+
 #app {
   font-family: Arial, Avenir, Helvetica, sans-serif;
   font-size: large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;;
+  margin-top: 60px;
+  height: 100%;
 }
 
 .p-tabmenu{
