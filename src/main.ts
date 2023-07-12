@@ -3,6 +3,7 @@ import App from '@/App.vue';
 import PrimeVue from 'primevue/config';
 import router from './router';
 import './index.css'
+import 'primeicons/primeicons.css';
 
 const app = createApp(App);
 

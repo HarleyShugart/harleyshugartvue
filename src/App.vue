@@ -1,38 +1,34 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import TabMenu from 'primevue/tabmenu';
-
-const menuItems = [
-    {
-        label: 'Home',
-        to: '/'
-    },
-    {
-        label: 'Skills',
-        to: '/skills'
-    },
-    {
-        label: 'Education',
-        to: '/education'
-    },
-    {
-        label: 'Contact',
-        to: '/contact'
-    }
-];
+import MobileMenu from './components/MobileMenu.vue';
+import LinksMenu from './components/LinksMenu.vue';
 </script>
 
 <template>
-    <tab-menu 
-      :model="menuItems"
-      >
-  </tab-menu>
+  <div class="md:hidden">
+    <mobile-menu></mobile-menu>
+    
+    <router-view v-slot="{Component, route}">
+      <transition name="slide-fade" mode="out-in">
+          <component :is="Component" :key="route.path"></component>
+      </transition>
+    </router-view>
+  </div>
 
-  <router-view v-slot="{Component, route}">
-    <transition name="slide-fade" mode="out-in">
-        <component :is="Component" :key="route.path"></component>
-    </transition>
-  </router-view>
+  <div class="hidden md:flex flex-row">
+    <div>
+      <h2>boom</h2>
+      <br><br>
+      <links-menu></links-menu>
+    </div>
+    <div>
+      <router-view v-slot="{Component, route}">
+        <transition name="slide-fade" mode="out-in">
+            <component :is="Component" :key="route.path"></component>
+        </transition>
+      </router-view>
+    </div>
+  </div>
 </template>
 
 <style>
