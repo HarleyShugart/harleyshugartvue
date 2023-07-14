@@ -15,10 +15,8 @@ import LinksMenu from './components/LinksMenu.vue';
     </router-view>
   </div>
 
-  <div class="hidden md:flex flex-row">
-    <div>
-      <h2>boom</h2>
-      <br><br>
+  <div class="desktop-app hidden md:flex flex-row divide-x-2">
+    <div class="">
       <links-menu></links-menu>
     </div>
     <div>
@@ -35,6 +33,9 @@ import LinksMenu from './components/LinksMenu.vue';
 html{
   height: 100%;
 }
+body{
+  height: 100%;
+}
 
 #app {
   font-family: Arial, Avenir, Helvetica, sans-serif;
@@ -42,7 +43,6 @@ html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
   height: 100%;
 }
 
@@ -50,6 +50,10 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.desktop-app {
+  height: 100%;
 }
 
 @media (min-width: 601px){

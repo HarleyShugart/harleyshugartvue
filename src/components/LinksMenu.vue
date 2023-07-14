@@ -23,5 +23,7 @@ const menuItems = [
 </script>
 
 <template>
-    <Menu :model="menuItems"></Menu>
+    <div class="justify-center content-center">
+        <Menu :model="menuItems"></Menu>
+    </div>
 </template>
