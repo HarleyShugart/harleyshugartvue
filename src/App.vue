@@ -19,7 +19,7 @@ import LinksMenu from './components/LinksMenu.vue';
     <div class="">
       <links-menu></links-menu>
     </div>
-    <div class="grow content-center justify-center">
+    <div class="grow">
       <router-view v-slot="{Component, route}">
         <transition name="slide-fade" mode="out-in">
             <component :is="Component" :key="route.path"></component>
@@ -30,11 +30,10 @@ import LinksMenu from './components/LinksMenu.vue';
 </template>
 
 <style>
-html{
+html, body{
   height: 100%;
-}
-body{
-  height: 100%;
+  widows: 100%;
+  margin: 0;
 }
 
 #app {
@@ -44,6 +43,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   height: 100%;
+  overflow-wrap: break-word;
 }
 
 .p-tabmenu{
@@ -94,5 +94,11 @@ body{
 ul {
     text-align: start;
     list-style-type: circle;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-size: x-large !important;
+  font-weight: bold !important;
 }
 </style>

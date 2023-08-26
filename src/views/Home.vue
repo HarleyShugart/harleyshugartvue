@@ -3,8 +3,8 @@
 </script>
 
 <template>    
-<div>
-    <h2>Welcome!</h2>
+<div class="page-content">
+    <h1>Welcome!</h1>
     <p>
         I intend for this site to serve as a reference for anyone who wants to know more about me, my resume, or my hobbies.
     </p>
@@ -16,3 +16,19 @@
     </p>
 </div>
 </template>
+
+<style>
+.page-content {
+    display: block;
+}
+
+.page-content p {
+    margin: 1rem 0 2rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+}
+</style>
