@@ -19,7 +19,7 @@ import LinksMenu from './components/LinksMenu.vue';
     <div class="">
       <links-menu></links-menu>
     </div>
-    <div class="grow pl-4">
+    <div class="grow pl-4 pt-10">
       <router-view v-slot="{Component, route}">
         <transition name="slide-fade" mode="out-in">
             <component :is="Component" :key="route.path"></component>

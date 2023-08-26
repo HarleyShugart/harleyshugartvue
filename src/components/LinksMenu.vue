@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import Menu from 'primevue/menu';
+import { ref } from 'vue';
+
+const menu = ref();
 
 const menuItems = [
     {
@@ -15,10 +18,6 @@ const menuItems = [
         to: '/education'
     },
     {
-        label: 'Contact',
-        to: '/contact'
-    },
-    {
         label: 'Games',
         to: '/games'
     }
@@ -27,7 +26,7 @@ const menuItems = [
 
 <template>
     <div class="justify-center content-center">
-        <Menu :model="menuItems"></Menu>
+        <Menu ref="menu" :model="menuItems"></Menu>
     </div>
 </template>
 
