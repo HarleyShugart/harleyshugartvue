@@ -1,54 +1,59 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import TabMenu from 'primevue/tabmenu';
-
-const menuItems = [
-    {
-        label: 'Home',
-        to: '/'
-    },
-    {
-        label: 'Skills',
-        to: '/skills'
-    },
-    {
-        label: 'Education',
-        to: '/education'
-    },
-    {
-        label: 'Contact',
-        to: '/contact'
-    }
-];
+import MobileMenu from './components/MobileMenu.vue';
+import LinksMenu from './components/LinksMenu.vue';
 </script>
 
 <template>
-    <tab-menu 
-      :model="menuItems"
-      >
-  </tab-menu>
+  <div class="md:hidden">
+    <mobile-menu></mobile-menu>
+    
+    <router-view v-slot="{Component, route}">
+      <transition name="slide-fade" mode="out-in">
+          <component :is="Component" :key="route.path"></component>
+      </transition>
+    </router-view>
+  </div>
 
-  <router-view v-slot="{Component, route}">
-    <transition name="slide-fade" mode="out-in">
-        <component :is="Component" :key="route.path"></component>
-    </transition>
-  </router-view>
+  <div class="desktop-app hidden md:flex flex-row divide-x-2">
+    <div class="">
+      <links-menu></links-menu>
+    </div>
+    <div>
+      <router-view v-slot="{Component, route}">
+        <transition name="slide-fade" mode="out-in">
+            <component :is="Component" :key="route.path"></component>
+        </transition>
+      </router-view>
+    </div>
+  </div>
 </template>
 
 <style>
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+}
+
 #app {
   font-family: Arial, Avenir, Helvetica, sans-serif;
   font-size: large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;;
+  height: 100%;
 }
 
 .p-tabmenu{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.desktop-app {
+  height: 100%;
 }
 
 @media (min-width: 601px){
