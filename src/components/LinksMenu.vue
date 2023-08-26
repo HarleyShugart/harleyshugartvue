@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Menu from 'primevue/menu';
-import MenuItem from 'primevue/menuitem';
 
 const menuItems = [
     {
@@ -18,6 +17,10 @@ const menuItems = [
     {
         label: 'Contact',
         to: '/contact'
+    },
+    {
+        label: 'Games',
+        to: '/games'
     }
 ];
 </script>
