@@ -30,14 +30,6 @@ const hasMove = (): boolean => {
     return boxMove !== '';
 };
 
-const isX = (): boolean => {
-    return boxMove.toLowerCase() === 'x';
-};
-
-const isO = (): boolean => {
-    return boxMove.toLowerCase() === 'o';
-};
-
 const getMove = (): string => {
     return boxMove;
 };
@@ -87,7 +79,7 @@ const reset = (): void => {
     boxMove = '';
 };
 
-defineExpose({hasMove, getMove, isX, isO, reset});
+defineExpose({hasMove, getMove, reset});
 
 </script>
 
