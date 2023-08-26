@@ -30,3 +30,15 @@ const menuItems = [
         <Menu :model="menuItems"></Menu>
     </div>
 </template>
+
+<style>
+.p-menu {
+    background: none !important;
+    border: none !important;
+}
+
+.p-menuitem-text {
+    font-size: large;
+    font-weight: bold;
+}
+</style>

@@ -19,6 +19,8 @@ const box = ref();
 const content = ref();
 
 let boxMove: string = '';
+const oColorClass: string = 'text-red-600';
+const xColorClass: string = 'text-violet-700';
 
 const emit = defineEmits<{
   (e: 'move'): void
@@ -40,18 +42,19 @@ const getMove = (): string => {
     return boxMove;
 };
 
-const setContent = (move: string): void => {
+const setContent = (move: string, colorClass: string): void => {
     content.value.innerHTML = move;
+    content.value.classList.add(colorClass);
     boxMove = move;
     emit('move');
 };
 
 const insertO = (): void => {
-    setContent('O');
+    setContent('O', oColorClass);
 };
 
 const insertX = (): void => {
-    setContent('X');
+    setContent('X', xColorClass);
 };
 
 const classes: ComputedRef<string> = computed<string>(() => {
@@ -78,6 +81,9 @@ const classes: ComputedRef<string> = computed<string>(() => {
 
 const reset = (): void => {
     content.value.innerHTML = '';
+    const contentHtmlElement = content.value as HTMLElement;
+    contentHtmlElement.classList.remove(oColorClass);
+    contentHtmlElement.classList.remove(xColorClass);
     boxMove = '';
 };
 
@@ -88,10 +94,10 @@ defineExpose({hasMove, getMove, isX, isO, reset});
 <template>
     <div
         ref="box"
-        :class="`${classes} flex`"
+        :class="`${classes} box flex border-black`"
         @click="insertX"
         @click.right.prevent="insertO"
     >
-        <div ref="content" class="grow pt-14 h-full"></div>
+        <div ref="content" class="text-3xl font-bold grow pt-14 h-full"></div>
     </div>
 </template>
