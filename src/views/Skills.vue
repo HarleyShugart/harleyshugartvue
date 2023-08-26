@@ -1,40 +1,65 @@
+<script setup lang="ts">
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import { Ref, ref } from 'vue';
+
+enum ExperienceType {
+    Professional = 'Professional',
+    College = 'College Coursework'
+}
+
+class Skill {
+    public Name: string;
+    public YearsOfExperience: number;
+    public TypeOfExperience: ExperienceType;
+
+    constructor(name: string, yearsOfExperience: number, typeOfExperience: ExperienceType){
+        this.Name = name;
+        this.YearsOfExperience = yearsOfExperience;
+        this.TypeOfExperience = typeOfExperience;
+    }
+}
+
+const skills: Ref<Skill[]> = ref([
+    new Skill('Vue.js', 3, ExperienceType.Professional),
+    new Skill('TypeScript', 3, ExperienceType.Professional),
+    new Skill('Cypress', 3, ExperienceType.Professional),
+    new Skill('Storybook', 3, ExperienceType.Professional),
+    new Skill('Visual Studio Code', 3, ExperienceType.Professional),
+    new Skill('Git & GitHub', 7, ExperienceType.Professional),
+    new Skill('GitHub Actions', 2, ExperienceType.Professional),
+    new Skill('npm', 3, ExperienceType.Professional),
+    new Skill('C#', 5, ExperienceType.Professional),
+    new Skill('PostgreSQL', 3, ExperienceType.Professional),
+    new Skill('DBeaver', 3, ExperienceType.Professional),
+    new Skill('Microsoft SQL Server', 3, ExperienceType.Professional),
+    new Skill('Microsoft SQL Server Management Studio', 3, ExperienceType.Professional),
+    new Skill('MVC', 5, ExperienceType.Professional),
+    new Skill('Razor', 5, ExperienceType.Professional),
+    new Skill('ReSharper', 5, ExperienceType.Professional),
+    new Skill('Visual Studio', 5, ExperienceType.Professional),
+    new Skill('TeamCity', 5, ExperienceType.Professional),
+    new Skill('NUnit', 5, ExperienceType.Professional),
+    new Skill('jQuery', 5, ExperienceType.Professional),
+    new Skill('Java', 4, ExperienceType.College),
+    new Skill('Eclipse', 4, ExperienceType.College),
+    new Skill('C++', 2, ExperienceType.College),
+    new Skill('Python', 1, ExperienceType.College)
+]);
+
+const tableHeight = ref(window.innerHeight);
+</script>
+
 <template>
 <div>
     <h3>This serves to document some of the skills, tools, languages, etc which I've utilized during my career.</h3>
     <br>
-    <h4>I use the following on a daily basis as part of my current position:</h4>
-    <ul>
-        <li>Vue.js</li>
-        <li>TypeScript</li>
-        <li>VueRouter</li>
-        <li>Cypress</li>
-        <li>Storybook</li>
-        <li>Visual Studio Code</li>
-        <li>Git & GitHub (including GitHub Actions)</li>
-        <li>npm</li>
-    </ul>
-    <h4>As part of my employment I am also well-versed with the following:</h4>
-    <ul>
-        <li>C#</li>
-        <li>PostgreSQL</li>
-        <li>DBeaver</li>
-        <li>Microsoft SQL Server</li>
-        <li>Microsoft SQL Server Management Studio</li>
-        <li>ASP.NET</li>
-        <li>MVC</li>
-        <li>Razor</li>
-        <li>ReSharper</li>
-        <li>Visual Studio</li>
-        <li>TeamCity</li>
-        <li>NUnit</li>
-        <li>jQuery</li>
-    </ul>
-    <h4>I also have limited experience with the following from my collegiate studies:</h4>
-    <ul>
-        <li>Java</li>
-        <li>Eclipse</li>
-        <li>C++</li>
-        <li>Python</li>
-    </ul>
+    <div classs="table-container">
+        <DataTable :value="skills" scrollable :scroll-height="`${tableHeight}`" tableStyle="min-width: 50rem" >
+            <Column field="Name" header="Skill" sortable></Column>
+            <Column field="YearsOfExperience" header="Years Of Experience" sortable></Column>
+            <Column field="TypeOfExperience" header="Type Of Experience" sortable></Column>
+        </DataTable>
+    </div>
 </div>
 </template>
