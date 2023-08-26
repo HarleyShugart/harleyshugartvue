@@ -5,7 +5,7 @@ import LinksMenu from './components/LinksMenu.vue';
 </script>
 
 <template>
-  <div class="md:hidden">
+  <div class="md:hidden m-4">
     <mobile-menu></mobile-menu>
     
     <router-view v-slot="{Component, route}">

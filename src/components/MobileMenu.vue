@@ -18,11 +18,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <Button icon="pi pi-bars" @click="() => visible = true" class="md:hidden"/>
+    <div class="mb-2">
+        <Button icon="pi pi-bars" @click="() => visible = true" class="md:hidden"/>
 
-    <Sidebar v-model:visible="visible" ref="sidebar">
-        <links-menu></links-menu>
-    </Sidebar>
+        <Sidebar v-model:visible="visible" ref="sidebar">
+            <links-menu></links-menu>
+        </Sidebar>
+    </div>
 </template>
 
 <style>
