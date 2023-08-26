@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ComputedRef, ref, Ref } from 'vue';
+import { computed, ComputedRef, ref } from 'vue';
 
 export interface BoxProps {
     borderTop?: boolean,
@@ -12,14 +12,38 @@ const props = withDefaults(defineProps<BoxProps>(), {
     borderTop: false,
     borderBottom: false,
     borderLeft: false,
-    borderRight: false
+    borderRight: false,
 });
 
 const box = ref();
 const content = ref();
 
+let boxMove: string = '';
+
+const emit = defineEmits<{
+  (e: 'move'): void
+}>();
+
+const hasMove = (): boolean => {
+    return boxMove !== '';
+};
+
+const isX = (): boolean => {
+    return boxMove.toLowerCase() === 'x';
+};
+
+const isO = (): boolean => {
+    return boxMove.toLowerCase() === 'o';
+};
+
+const getMove = (): string => {
+    return boxMove;
+};
+
 const setContent = (move: string): void => {
     content.value.innerHTML = move;
+    boxMove = move;
+    emit('move');
 };
 
 const insertO = (): void => {
@@ -52,6 +76,13 @@ const classes: ComputedRef<string> = computed<string>(() => {
     return calculatedClassses;
 });
 
+const reset = (): void => {
+    content.value.innerHTML = '';
+    boxMove = '';
+};
+
+defineExpose({hasMove, getMove, isX, isO, reset});
+
 </script>
 
 <template>
@@ -59,7 +90,7 @@ const classes: ComputedRef<string> = computed<string>(() => {
         ref="box"
         :class="`${classes} flex`"
         @click="insertX"
-        @dblclick="insertO"
+        @click.right.prevent="insertO"
     >
         <div ref="content" class="grow pt-14 h-full"></div>
     </div>
