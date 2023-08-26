@@ -5,6 +5,8 @@ import router from './router';
 import './index.css'
 import 'primeicons/primeicons.css';
 
+import 'primevue/resources/themes/saga-green/theme.css';
+
 const app = createApp(App);
 
 app.use(PrimeVue);
