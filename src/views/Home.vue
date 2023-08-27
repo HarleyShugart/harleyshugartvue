@@ -18,12 +18,15 @@ import Card from 'primevue/card';
             <p>
                 If you're interested in following along with the code for this site, you can do so by viewing <a href="https://github.com/HarleyShugart/harleyshugartvue" target="_blank">this repository on GitHub</a>.
             </p>
+            <p>
+                If you would like to contact me, please <a href="https://www.linkedin.com/in/harleyshugart/" target="_blank">connect with me on LinkedIn</a>!
+            </p>
         </template>
     </Card>
 </div>
 </template>
 
-<style>
+<style scoped>
 .page-content {
     display: block;
 }
@@ -36,5 +39,10 @@ import Card from 'primevue/card';
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     text-align: left;
+}
+
+a {
+    color: green !important;
+    font-weight: bold;
 }
 </style>
