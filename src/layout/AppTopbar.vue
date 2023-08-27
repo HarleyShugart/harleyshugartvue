@@ -8,9 +8,7 @@ const { onMenuToggle } = useLayout();
 <template>
     <div class="layout-topbar">
         <router-link to="/" class="layout-topbar-logo">
-            <img src="../../layout/images/logo-dark.svg" alt="logo" />
-            <!--TODO: update logo-->
-            <span>Harley Shugart</span>
+            <span>HS</span>
         </router-link>
 
         <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
