@@ -3,27 +3,34 @@ import Home from '@/views/Home.vue';
 import Education from '@/views/Education.vue';
 import Skills from '@/views/Skills.vue';
 import Games from '@/views/Games.vue';
+import AppLayout from '@/layout/AppLayout.vue';
 
 const routes = [
     {
         path: '/',
-        component: Home
-    },
-    {
-        path: '/home',
-        component: Home
-    },
-    {
-        path: '/education',
-        component: Education
-    },
-    {
-        path: '/skills',
-        component: Skills
-    },
-    {
-        path: '/games',
-        component: Games
+        component: AppLayout,
+        children: [
+            {
+                path: '/',
+                component: Home
+            },
+            {
+                path: '/home',
+                component: Home
+            },
+            {
+                path: '/education',
+                component: Education
+            },
+            {
+                path: '/skills',
+                component: Skills
+            },
+            {
+                path: '/games',
+                component: Games
+            }
+        ]
     }
 ];
 
