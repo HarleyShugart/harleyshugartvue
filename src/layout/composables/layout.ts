@@ -20,16 +20,7 @@ const layoutState = reactive({
 });
 
 export function useLayout() {
-    const changeThemeSettings = (theme, darkTheme) => {
-        layoutConfig.darkTheme = darkTheme;
-        layoutConfig.theme = theme;
-    };
-
-    const setScale = (scale) => {
-        layoutConfig.scale = scale;
-    };
-
-    const setActiveMenuItem = (item) => {
+    const setActiveMenuItem = (item: any) => {
         layoutConfig.activeMenuItem = item.value || item;
     };
 
@@ -47,7 +38,5 @@ export function useLayout() {
 
     const isSidebarActive = computed(() => layoutState.overlayMenuActive || layoutState.staticMenuMobileActive);
 
-    const isDarkTheme = computed(() => layoutConfig.darkTheme);
-
-    return { layoutConfig: toRefs(layoutConfig), layoutState: toRefs(layoutState), changeThemeSettings, setScale, onMenuToggle, isSidebarActive, isDarkTheme, setActiveMenuItem };
+    return { layoutConfig: toRefs(layoutConfig), layoutState: toRefs(layoutState), onMenuToggle, isSidebarActive, setActiveMenuItem };
 }

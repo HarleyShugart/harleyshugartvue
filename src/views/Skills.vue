@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import Card from 'primevue/card';
 import { Ref, ref } from 'vue';
 
 enum ExperienceType {
@@ -46,20 +47,23 @@ const skills: Ref<Skill[]> = ref([
     new Skill('C++', 2, ExperienceType.College),
     new Skill('Python', 1, ExperienceType.College)
 ]);
-
-const tableHeight = ref(window.innerHeight);
 </script>
 
 <template>
 <div>
-    <h3>This serves to document some of the skills, tools, languages, etc which I've utilized during my career.</h3>
-    <br>
-    <div classs="table-container">
-        <DataTable :value="skills" scrollable :scroll-height="`${tableHeight}`" tableStyle="min-width: 50rem" >
-            <Column field="Name" header="Skill" sortable></Column>
-            <Column field="YearsOfExperience" header="Years Of Experience" sortable></Column>
-            <Column field="TypeOfExperience" header="Type Of Experience" sortable></Column>
-        </DataTable>
-    </div>
+    <Card>
+        <template #title>Skills</template>
+        <template #content>
+            <p>
+                This serves to document some of the skills, tools, languages, etc which I've utilized during college and my career. The default order they are listed in roughly reflects my most recent to least recente experience.
+            </p>
+
+            <DataTable :value="skills" removable-sort>
+                <Column field="Name" header="Skill" sortable></Column>
+                <Column field="YearsOfExperience" header="Years Of Experience" sortable></Column>
+                <Column field="TypeOfExperience" header="Type Of Experience" sortable></Column>
+            </DataTable>
+        </template>
+    </Card>
 </div>
 </template>

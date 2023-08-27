@@ -12,12 +12,6 @@ import { RouterView } from 'vue-router';
   font-size: large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
-
-ul {
-    text-align: start;
-    list-style-type: circle;
 }
 
 h1 {
