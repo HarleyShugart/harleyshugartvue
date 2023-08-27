@@ -13,16 +13,24 @@ const reset = (): void => {
 </script>
 
 <template>
-    <Card>
-        <template #title>How to play</template>
-        <template #content>
-            <p>
-                Just click on a box to make a move! Left clicks will make "X" moves, while right clicks will make "O" moves.
-            </p>
-        </template>
-    </Card>
-    <br><br>
-    <Board ref="board"></Board>
-    <br><br>
-    <Button label="New Game" @click="reset"></Button>
+    <div class="content-center text-center">
+        <Card>
+            <template #title>How to play</template>
+            <template #content>
+                <p>
+                    Just click on a box to make a move! Left clicks will make "X" moves, while right clicks will make "O" moves.
+                </p>
+            </template>
+        </Card>
+        <br><br>
+        <Board ref="board"></Board>
+        <br><br>
+        <Button label="New Game" @click="reset"></Button>
+    </div>
 </template>
+
+<style scoped>
+button {
+    background-color: #4CAF50 !important;
+}
+</style>

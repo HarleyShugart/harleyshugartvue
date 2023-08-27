@@ -103,7 +103,7 @@ defineExpose({reset});
 </script>
 
 <template>
-    <div class="grid grid-cols-3 aspect-square">
+    <div class="grid grid-cols-3 aspect-square board">
         <Box 
             ref="topLeft"
             border-bottom 
