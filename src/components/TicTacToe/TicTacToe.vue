@@ -2,6 +2,7 @@
 import Board from './Board.vue';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
+import SelectButton from 'primevue/selectbutton';
 import { ref } from 'vue';
 
 const board = ref();
@@ -9,6 +10,9 @@ const board = ref();
 const reset = (): void => {
     board.value.reset();
 };
+
+const moveButtonValue = ref('X');
+const moveOptions = ref(['X', 'O']); 
 
 </script>
 
@@ -18,12 +22,14 @@ const reset = (): void => {
             <template #title>How to play</template>
             <template #content>
                 <p>
-                    Just click on a box to make a move! Left clicks will make "X" moves, while right clicks will make "O" moves.
+                    Click either the "X" or "O" button to select your move type. Then just click in a box to place your move!
                 </p>
             </template>
         </Card>
         <br><br>
-        <Board ref="board"></Board>
+        <SelectButton v-model="moveButtonValue" :options="moveOptions"></SelectButton>
+        <br><br>
+        <Board ref="board" :move="moveButtonValue"></Board>
         <br><br>
         <Button label="New Game" @click="reset"></Button>
     </div>
