@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import Box from './Box.vue';
-import { Ref, nextTick, ref } from 'vue';
+import { Ref, ref } from 'vue';
+
+export interface BoardProps {
+    move: string
+};
+
+const props = withDefaults(defineProps<BoardProps>(), {
+    
+});
 
 const topLeft = ref();
 const topMiddle = ref();
@@ -109,6 +117,7 @@ defineExpose({reset});
             border-bottom 
             border-right
             @move="checkGameOver"
+            :move="props.move"
             >
         </Box>
         <Box
@@ -116,12 +125,14 @@ defineExpose({reset});
             border-bottom 
             border-right
             @move="checkGameOver"
+            :move="props.move"
         >
         </Box>
         <Box
             ref="topRight"
             border-bottom 
             @move="checkGameOver"
+            :move="props.move"
         >
         </Box>
         <Box 
@@ -129,6 +140,7 @@ defineExpose({reset});
             border-bottom 
             border-right
             @move="checkGameOver"
+            :move="props.move"
             >
         </Box>
         <Box
@@ -136,26 +148,30 @@ defineExpose({reset});
             border-bottom 
             border-right
             @move="checkGameOver"
+            :move="props.move"
         >
         </Box>
         <Box
             ref="middleRight"
             border-bottom 
             @move="checkGameOver"
+            :move="props.move"
         >
         </Box>
         <Box 
             ref="bottomLeft"
             border-right
             @move="checkGameOver"
+            :move="props.move"
             >
         </Box>
         <Box
             ref="bottomMiddle"
             border-right
             @move="checkGameOver"
+            :move="props.move"
         >
         </Box>
-        <Box ref="bottomRight" @move="checkGameOver"></Box>
+        <Box ref="bottomRight" @move="checkGameOver" :move="props.move"></Box>
     </div>
 </template>

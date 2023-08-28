@@ -6,6 +6,7 @@ export interface BoxProps {
     borderBottom?: boolean,
     borderLeft?: boolean,
     borderRight?: boolean,
+    move: string
 };
 
 const props = withDefaults(defineProps<BoxProps>(), {
@@ -41,12 +42,14 @@ const setContent = (move: string, colorClass: string): void => {
     emit('move');
 };
 
-const insertO = (): void => {
-    setContent('O', oColorClass);
-};
+const moveColor = computed<string>(() => {
+    return props.move.toLowerCase() === 'x'
+        ? xColorClass
+        : oColorClass;
+});
 
-const insertX = (): void => {
-    setContent('X', xColorClass);
+const insertMove = (): void => {
+    setContent(props.move, moveColor.value)
 };
 
 const classes: ComputedRef<string> = computed<string>(() => {
@@ -87,8 +90,7 @@ defineExpose({hasMove, getMove, reset});
     <div
         ref="box"
         :class="`${classes} box flex border-black`"
-        @click="insertX"
-        @click.right.prevent="insertO"
+        @click="insertMove"
     >
         <div ref="content" class="text-3xl font-bold grow pt-14 h-full"></div>
     </div>
