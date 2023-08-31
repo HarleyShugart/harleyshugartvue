@@ -75,7 +75,7 @@ const classes: ComputedRef<string> = computed<string>(() => {
 });
 
 const reset = (): void => {
-    content.value.innerHTML = '';
+    content.value.innerHTML = '&nbsp;';
     const contentHtmlElement = content.value as HTMLElement;
     contentHtmlElement.classList.remove(oColorClass);
     contentHtmlElement.classList.remove(xColorClass);
@@ -89,9 +89,9 @@ defineExpose({hasMove, getMove, reset});
 <template>
     <div
         ref="box"
-        :class="`${classes} box flex border-black`"
+        :class="`${classes} box border-black`"
         @click="insertMove"
     >
-        <div ref="content" class="text-3xl font-bold grow pt-14 h-full"></div>
+        <div ref="content" class="text-3xl font-bold pt-14 h-full">&nbsp;</div>
     </div>
 </template>
