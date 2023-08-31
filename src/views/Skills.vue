@@ -55,7 +55,7 @@ const skills: Ref<Skill[]> = ref([
         <template #title>Skills</template>
         <template #content>
             <p>
-                This serves to document some of the skills, tools, languages, etc which I've utilized during college and my career. The default order they are listed in roughly reflects my most recent to least recente experience.
+                This serves to document some of the skills, tools, languages, etc which I've utilized during college and my career. The default order they are listed in roughly reflects my most recent to least recent experience.
             </p>
 
             <DataTable :value="skills" removable-sort>
